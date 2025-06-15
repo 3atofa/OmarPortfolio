@@ -25,9 +25,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/bootstrap-icons/font/bootstrap-icons.min.css",
+              "src/styles.css",
+              "node_modules/aos/dist/aos.css"
             ],
-            "scripts": []
+            "scripts": [
+              "/node_modules/aos/dist/aos.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -91,8 +95,14 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "93202a20-aeec-4cfa-809c-fbcc04c074e3"
   }
 }
