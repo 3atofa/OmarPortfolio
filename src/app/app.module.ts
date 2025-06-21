@@ -7,6 +7,7 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MainComponent } from './pages/main/main.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { MainComponent } from './pages/main/main.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

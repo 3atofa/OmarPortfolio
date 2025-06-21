@@ -9,7 +9,7 @@
 
     <div class="lg:flex lg:flex-row-reverse items-center overflow-hidden">
         <!-- ^ robot start -->
-        <spline-viewer data-aos="fade-up-left" class="h-[45rem] lg:h-[35rem] "
+        <spline-viewer data-aos="fade-up-left" class="h-[42rem] lg:h-[35rem] "
             url="https://prod.spline.design/HVC9zrbSDI-JY-8b/scene.splinecode"></spline-viewer>
         <!-- ^ robot ends -->
 
@@ -26,11 +26,12 @@
                 and landing pages.</p>
             <!-- ! Contact & CV -->
             <div data-aos="fade-right" data-aos-duration="3000" class="mt-8 flex flex-col lg:flex-row gap-4 ">
-                <button
-                    class="px-4 py-2 w-full text-sm lg:text-md rounded border border-black bg-white text-black  hover:bg-black duration-500 hover:text-white hover:border-white">Download
-                    CV <i class="ms-1 bi bi-arrow-down-circle inline-block animate-bounce text-xl"></i></button>
-                <button
-                    class="px-4 py-2 w-full text-sm lg:text-md rounded border border-white bg-black text-white duration-500  hover:bg-white hover:text-black hover:border-black">Contact
+                <button (click)="scrollTo('projects')"
+                    class="px-4 font-semibold py-2 w-full text-sm lg:text-md rounded border border-black bg-white text-black  hover:bg-black duration-500 hover:text-white hover:border-white">View
+                    Projects
+                    <i class="ms-1 bi bi-arrow-down-circle inline-block animate-bounce text-xl"></i></button>
+                <button (click)="scrollTo('contact')"
+                    class="px-4 font-semibold py-2 w-full text-sm lg:text-md rounded border border-white bg-black text-white duration-500  hover:bg-white hover:text-black hover:border-black">Contact
                     Me
                     <i class="ms-2 animate-spin inline-block bi bi-phone-fill"></i></button>
             </div>
@@ -39,7 +40,7 @@
     </div>
 </section>
 
-<section class="relative mx-6">
+<section id="projects" class="relative mx-6">
     <!-- ! header starts -->
     <div data-aos="zoom-in" class="relative w-max mx-auto mt-20 text-centerz-50">
         <p class="text-3xl uppercase relative z-20">Projects</p>
@@ -140,20 +141,20 @@
         </div>
         <!-- ! projects -->
 
-        <h3 data-aos="fade-up-right" class="text-md mb-6">
+        <h3 data-aos="fade-right" class="text-md mb-6">
             Designed and developed responsive admin dashboards for tourism and apparel manufacturing platforms using
             Angular and Tailwind CSS — improving user experience and boosting client engagement across 4+ projects.
         </h3>
 
         <h3>Work Experience in GenAI:</h3>
         <ul class="list-disc font-light ms-5">
-            <li data-aos="fade-left" class=" text-sm lg:text-base my-2 lg:my-4">
+            <li data-aos="fade-right" class=" text-sm lg:text-base my-2 lg:my-4">
                 A comprehensive internal system for a clothing factory enabling
                 product and category management. Supports multiple product sizes and variations, streamlining inventory
                 control and catalog organization.
             </li>
 
-            <li data-aos="fade-left" class=" text-sm lg:text-base my-2 lg:my-4">
+            <li data-aos="fade-right" class=" text-sm lg:text-base my-2 lg:my-4">
                 A robust internal platform built for a tourism company to efficiently
                 manage tours, hotel bookings, and destination details — streamlining operations and improving client
                 service delivery.
@@ -179,7 +180,7 @@
         <div class="light w-72 absolute top-0 left-1/2 -translate-x-1/2 mt-2 z-10"></div>
     </div>
 
-    <i class="bi bi-lightbulb-fill bulb z-40 absolute top-[5%] left-[48%] rotate-[180deg] text-4xl text-white"></i>
+    <i class="bi bi-lightbulb-fill bulb z-40 absolute top-[5%] left-[50%] rotate-[180deg] text-4xl text-white"></i>
     <div data-aos="fade-zoom-out" data-aos-duration="3000"
         class="absolute light top-[15%] left-[45%] w-20 -translate-x-1/2 -translate-y-1/2 z-30 rounded-full "></div>
     <img class="image-gradient absolute top-0 left-1/2 -translate-x-1/2 opacity-50" src="/assets/img/gradient.png"
@@ -187,7 +188,7 @@
 
     <div class="lg:flex justify-between items-center">
         <!-- Landing Pages Box -->
-        <div class="box border border-white rounded-xl lg:w-[48%] px-2 py-3">
+        <div data-aos="fade-right" class="box border border-white rounded-xl lg:w-[48%] px-2 py-3">
             <h3 class="text-xl font-semibold mb-2">Landing Pages</h3>
             <p class="text-sm text-gray-300">
                 Custom-designed, responsive landing pages built with TailwindCSS and Angular. Ideal for lead generation,
@@ -196,7 +197,7 @@
         </div>
 
         <!-- Web Application Box -->
-        <div class="box border border-white rounded-xl lg:w-[48%] p-5 mt-3 lg:mt-0">
+        <div data-aos="fade-left" class="box border border-white rounded-xl lg:w-[48%] p-5 mt-3 lg:mt-0">
             <h3 class="text-xl font-semibold mb-2">Web Applications</h3>
             <p class="text-sm text-gray-300">
                 Scalable, API-integrated web applications developed using Angular and modern UI tools. Built for
@@ -210,7 +211,7 @@
 
 
 <!-- ! Contact starts -->
-<section class="relative mb-4 lg:mx-[10%] pt-10 overflow-x-hidden">
+<section id="contact" class="relative mb-4 lg:mx-[10%] pt-10 overflow-x-hidden overflow-y-hidden">
     <div data-aos="zoom-in" class="relative w-max mx-auto mb-20 text-center">
         <!-- Projects title -->
         <p class="text-3xl uppercase relative z-20">Contact Me</p>
@@ -224,29 +225,78 @@
     </div>
 
     <div class="lg:flex justify-between items-center my-16">
-        <div class="lg:w-1/2 border border-white rounded-lg px-3 py-4 h-full">
-            <form action="">
+        <div data-aos="fade-right" class="lg:w-1/2 border border-white rounded-lg px-3 py-4 h-full">
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
                 <h3 class="text-center text-2xl mb-4">Send Me Message</h3>
-                <input class="block w-full text-white rounded-xl bg-transparent border border-white px-3 py-4 "
-                    type="text" placeholder="First Name">
 
-                <input class="block w-full text-white rounded-xl bg-transparent border border-white px-3 py-4 mt-4"
-                    type="text" placeholder="Last Name">
+                <!-- First Name -->
+                <div class="mb-4">
+                    <input formControlName="firstName"
+                        class="block w-full text-white rounded-xl bg-transparent border border-white px-3 py-4"
+                        type="text" placeholder="First Name">
+                    <div *ngIf="contactForm.get('firstName')?.invalid && contactForm.get('firstName')?.touched"
+                        class="text-red-400 text-sm mt-1">
+                        First name is required
+                    </div>
+                </div>
 
-                <textarea
-                    class="block w-full min-h-48 text-white rounded-xl bg-transparent border border-white px-3 py-4 mt-4 mb-8"
-                    name="" id="" placeholder="Message"></textarea>
+                <!-- Last Name -->
+                <div class="mb-4">
+                    <input formControlName="lastName"
+                        class="block w-full text-white rounded-xl bg-transparent border border-white px-3 py-4"
+                        type="text" placeholder="Last Name">
+                    <div *ngIf="contactForm.get('lastName')?.invalid && contactForm.get('lastName')?.touched"
+                        class="text-red-400 text-sm mt-1">
+                        Last name is required
+                    </div>
+                </div>
 
-                <button type="button" class="px-4 py-2 w-full bg-white text-black rounded-xl">Submit</button>
+                <!-- Email -->
+                <div class="mb-4">
+                    <input formControlName="email"
+                        class="block w-full text-white rounded-xl bg-transparent border border-white px-3 py-4"
+                        type="email" placeholder="Your Email">
+                    <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
+                        class="text-red-400 text-sm mt-1">
+                        Please enter a valid email
+                    </div>
+                </div>
+
+                <!-- Message -->
+                <div class="mb-4">
+                    <textarea formControlName="message"
+                        class="block w-full min-h-48 text-white rounded-xl bg-transparent border border-white px-3 py-4"
+                        placeholder="Your Message"></textarea>
+                    <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"
+                        class="text-red-400 text-sm mt-1">
+                        Message must be at least 10 characters
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" [disabled]="contactForm.invalid || isSubmitting"
+                    class="px-4 py-2 w-full bg-white text-black rounded-xl disabled:opacity-50 disabled:cursor-not-allowed">
+                    {{ isSubmitting ? 'Sending...' : 'Submit' }}
+                </button>
+
+                <!-- Success Message -->
+                <div *ngIf="submitSuccess" class="mt-4 p-3 bg-green-500 text-white rounded-lg text-center">
+                    Message sent successfully! I'll get back to you soon.
+                </div>
+
+                <!-- Error Message -->
+                <div *ngIf="submitError" class="mt-4 p-3 bg-red-500 text-white rounded-lg text-center">
+                    Failed to send message. Please try again later or contact me directly at {{email}}
+                </div>
             </form>
         </div>
 
-        <div class="lg:w-1/2 my-4 lg:my-0">
+        <div data-aos="fade-left" class="lg:w-1/2 my-4 lg:my-0">
             <img class="w-2/3 mx-auto  lg:ms-auto rounded-full" src="/assets/img/omar-bg-cut.jpg" alt="">
         </div>
     </div>
 
-    <div class="lg:flex text-center justify-between rounded-xl  px-5 py-2 gap-y-3 flex-wrap">
+    <div data-aos="fade-up" class="lg:flex text-center justify-between rounded-xl  px-5 py-2 gap-y-3 flex-wrap">
         <div class="box my-4 lg:my-0 border-2 rounded-xl w-full lg:w-[49%] py-4 ">
             <a target="_blank" href="mailto:omaratef.212109@gmail.com" class="text-white text-sm text-center">
                 <div
