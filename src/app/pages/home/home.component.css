@@ -2,14 +2,11 @@
     position: absolute;
     width: 30rem;      
     box-shadow: 0 0 700px 15px white;
-    border-bottom-left-radius: 100%;
-    border-bottom-right-radius: 100%;
     rotate: -30deg;
 }
 
 .light {
   box-shadow: 0 0 700px 14px white;
- 
 }
 
 

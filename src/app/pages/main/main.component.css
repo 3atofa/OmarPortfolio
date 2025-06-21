@@ -1,0 +1,21 @@
+.lamb{
+    position: absolute;
+    width: 20rem;      
+    box-shadow: 0 0 700px 25px white;
+}
+
+.bulb::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 333px;
+  background-color: #ffffffaa;
+  overflow: hidden;
+}
+
+.light {
+  box-shadow: 0 0 700px 15px white;
+}
