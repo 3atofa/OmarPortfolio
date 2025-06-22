@@ -15,6 +15,10 @@ body {
     color: #fff;
 }
     
+/* Smooth fade-out animation for spinner */
+.ngx-spinner-overlay {
+  transition: opacity 0.3s ease-out !important;
+}
 
 
 
