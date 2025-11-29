@@ -7,6 +7,9 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MainComponent } from './pages/main/main.component';
+import { ProjectsComponent } from './pages/projects/projects.component';
+import { ServicesComponent } from './pages/services/services.component';
+import { ProjectDetailsComponent } from './pages/project-details/project-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,7 +21,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FooterComponent,
     HomeComponent,
     MainComponent,
-    
+    ProjectsComponent,
+    ServicesComponent,
+    ProjectDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -20,14 +20,17 @@ export class AppComponent {
   ngOnInit(): void {
     this.spinner.show();
 
+    // Faster spinner hide for better UX
     setTimeout(() => {
       this.spinner.hide();
-    }, 2300);
-
+    }, 1200);
 
     AOS.init({
-      duration: 1000,
-      once: true, // Only animate once
+      duration: 800,
+      once: true,
+      offset: 50,
+      delay: 0,
+      easing: 'ease-in-out'
     });
   }
 }

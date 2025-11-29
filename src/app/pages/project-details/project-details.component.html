@@ -1,0 +1,155 @@
+<div *ngIf="project" class="min-h-screen bg-black text-white">
+    <!-- Hero Section -->
+    <section class="relative pt-24 pb-12 px-4 sm:px-6 lg:px-20">
+        <div class="absolute inset-0 overflow-hidden">
+            <img loading="lazy" decoding="async" class="absolute top-0 left-1/2 -translate-x-1/2 opacity-20 w-full max-w-4xl" 
+                 src="/assets/img/gradient.png" alt="gradient background">
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto">
+            <button (click)="router.navigate(['/projects'])" 
+                    class="mb-6 px-4 py-2 rounded-full border border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-black transition-all duration-300 flex items-center gap-2">
+                <i class="bi bi-arrow-left"></i> Back to Projects
+            </button>
+
+            <h1 data-aos="fade-up" class="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+                {{ project.title }}
+            </h1>
+            <p data-aos="fade-up" data-aos-delay="100" class="text-base sm:text-lg lg:text-xl text-gray-400 mb-6 max-w-3xl">
+                {{ project.description }}
+            </p>
+
+            <div data-aos="fade-up" data-aos-delay="200" class="flex flex-wrap gap-2 mb-8">
+                <span *ngFor="let tech of project.technologies" 
+                      class="px-3 py-1 text-xs sm:text-sm rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-white/20 text-white">
+                    {{ tech }}
+                </span>
+            </div>
+
+            <a [href]="project.link" target="_blank" 
+               class="inline-block px-6 sm:px-8 py-3 sm:py-4 rounded-full border-2 border-white bg-white text-black font-semibold hover:bg-black hover:text-white transition-all duration-300 text-sm sm:text-base">
+                Visit Live Site <i class="bi bi-box-arrow-up-right ms-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Image Gallery -->
+    <section class="relative py-12 px-4 sm:px-6 lg:px-20">
+        <div class="max-w-7xl mx-auto">
+            <h2 data-aos="fade-up" class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8 text-center bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+                Project Screenshots
+            </h2>
+
+            <!-- Main Image Viewer -->
+            <div data-aos="fade-up" class="relative mb-6 sm:mb-8 rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 to-black border border-white/20">
+                <div class="relative aspect-video w-full">
+                    <img [src]="project.images[currentImageIndex]" 
+                         [alt]="project.title + ' screenshot ' + (currentImageIndex + 1)"
+                         class="w-full h-full object-contain"
+                         loading="lazy"
+                         decoding="async">
+                    
+                    <!-- Navigation Arrows -->
+                    <button *ngIf="project.images.length > 1" 
+                            (click)="previousImage()"
+                            class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 text-white hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center">
+                        <i class="bi bi-chevron-left text-lg sm:text-xl"></i>
+                    </button>
+                    <button *ngIf="project.images.length > 1" 
+                            (click)="nextImage()"
+                            class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 text-white hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center">
+                        <i class="bi bi-chevron-right text-lg sm:text-xl"></i>
+                    </button>
+
+                    <!-- Image Counter -->
+                    <div class="absolute bottom-2 sm:bottom-4 right-2 sm:right-4 px-3 py-1 sm:px-4 sm:py-2 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 text-white text-xs sm:text-sm">
+                        {{ currentImageIndex + 1 }} / {{ project.images.length }}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thumbnail Grid -->
+            <div *ngIf="project.images.length > 1" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2 sm:gap-4">
+                <button *ngFor="let image of project.images; let i = index" 
+                        (click)="goToImage(i)"
+                        [class.ring-2]="i === currentImageIndex"
+                        [class.ring-white]="i === currentImageIndex"
+                        class="relative aspect-video rounded-lg overflow-hidden bg-gray-900 border border-white/20 hover:border-white/40 transition-all duration-300 transform hover:scale-105">
+                    <img [src]="image" 
+                         [alt]="project.title + ' thumbnail ' + (i + 1)"
+                         class="w-full h-full object-cover"
+                         loading="lazy"
+                         decoding="async">
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Details -->
+    <section class="relative py-12 px-4 sm:px-6 lg:px-20">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+            <!-- Description -->
+            <div data-aos="fade-right" class="space-y-6">
+                <div class="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-gray-900 to-black border border-white/20">
+                    <h3 class="text-xl sm:text-2xl font-bold mb-4 text-white">About This Project</h3>
+                    <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+                        {{ project.fullDescription }}
+                    </p>
+                </div>
+
+                <div class="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-gray-900 to-black border border-white/20">
+                    <h3 class="text-xl sm:text-2xl font-bold mb-4 text-white">Category</h3>
+                    <span class="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold text-sm sm:text-base">
+                        {{ project.category }} Development
+                    </span>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div data-aos="fade-left" class="space-y-6">
+                <div class="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-gray-900 to-black border border-white/20">
+                    <h3 class="text-xl sm:text-2xl font-bold mb-6 text-white">Key Features</h3>
+                    <ul class="space-y-3">
+                        <li *ngFor="let feature of project.features" 
+                            class="flex items-start gap-3 text-sm sm:text-base text-gray-300">
+                            <i class="bi bi-check-circle-fill text-green-500 text-lg sm:text-xl mt-1 flex-shrink-0"></i>
+                            <span>{{ feature }}</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-gray-900 to-black border border-white/20">
+                    <h3 class="text-xl sm:text-2xl font-bold mb-4 text-white">Technologies Used</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span *ngFor="let tech of project.technologies" 
+                              class="px-3 py-1 text-xs sm:text-sm rounded-full bg-white/10 border border-white/20 text-gray-300">
+                            {{ tech }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-20">
+        <div data-aos="zoom-in" class="max-w-4xl mx-auto text-center p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-gray-900 to-black border border-white/20">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+                Interested in Similar Work?
+            </h2>
+            <p class="text-sm sm:text-base text-gray-400 mb-6 sm:mb-8">
+                Let's collaborate on your next project
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a routerLink="/contact" 
+                   class="px-6 sm:px-8 py-3 sm:py-4 rounded-full border-2 border-white bg-white text-black font-semibold hover:bg-black hover:text-white transition-all duration-300 text-sm sm:text-base">
+                    Get In Touch <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+                <button (click)="router.navigate(['/projects'])" 
+                        class="px-6 sm:px-8 py-3 sm:py-4 rounded-full border-2 border-white bg-black text-white font-semibold hover:bg-white hover:text-black transition-all duration-300 text-sm sm:text-base">
+                    View All Projects <i class="bi bi-grid-3x3-gap ms-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+</div>

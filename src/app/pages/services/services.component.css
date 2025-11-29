@@ -1,0 +1,84 @@
+/* Services Hero Lighting */
+.lamb-services {
+    position: absolute;
+    width: 22rem;      
+    box-shadow: 0 0 1000px 50px rgba(147, 197, 253, 0.6);
+    animation: pulse-glow-blue 3s ease-in-out infinite;
+}
+
+.bulb-services::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 400px;
+    background: linear-gradient(to bottom, rgba(147, 197, 253, 0.8), transparent);
+    animation: wire-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow-blue {
+    0%, 100% {
+        box-shadow: 0 0 1000px 50px rgba(147, 197, 253, 0.6);
+    }
+    50% {
+        box-shadow: 0 0 1200px 70px rgba(147, 197, 253, 0.8);
+    }
+}
+
+@keyframes wire-glow {
+    0% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Service Cards */
+.service-card {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(255, 255, 255, 0.15);
+}
+
+/* Technologies Light Effect */
+.light-tech {
+    box-shadow: 0 0 800px 20px rgba(147, 197, 253, 0.4);
+}
+
+/* Tech Cards */
+.tech-card {
+    transition: all 0.3s ease;
+}
+
+.tech-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(147, 197, 253, 0.2);
+}
+
+/* Process Steps */
+.process-step {
+    transition: all 0.3s ease;
+}
+
+.process-step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient utilities */
+.from-blue-500 { --tw-gradient-from: #3b82f6; }
+.to-cyan-500 { --tw-gradient-to: #06b6d4; }
+.from-purple-500 { --tw-gradient-from: #a855f7; }
+.to-pink-500 { --tw-gradient-to: #ec4899; }
+.from-green-500 { --tw-gradient-from: #22c55e; }
+.to-emerald-500 { --tw-gradient-to: #10b981; }
+.from-orange-500 { --tw-gradient-from: #f97316; }
+.to-red-500 { --tw-gradient-to: #ef4444; }
+.from-indigo-500 { --tw-gradient-from: #6366f1; }
+.from-yellow-500 { --tw-gradient-from: #eab308; }

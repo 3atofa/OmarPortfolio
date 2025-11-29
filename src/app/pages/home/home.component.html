@@ -1,6 +1,6 @@
 <!-- ~ main Content Starts -->
 <!-- ^ lamb efect starts -->
-<img class="image-gradient absolute top-0 right-0 opacity-50 z-50" src="/assets/img/gradient.png" alt="">
+<img loading="lazy" decoding="async" class="image-gradient absolute top-0 right-0 opacity-50 z-50" src="/assets/img/gradient.png" alt="gradient background">
 <div data-aos="fade-zoom-out" data-aos-duration="3000" class="lamb lg:right-[-10%] lg:top-[8%] z-50"></div>
 <i class="hidden bi bi-lightbulb-fill bulb absolute top-14 right-24 right-bulb text-white text-4xl rotate-[25deg]"></i>
 
@@ -32,10 +32,10 @@
         </div>
     </div>
 
-    <!-- ^ robot start -->
-    <spline-viewer data-aos="fade-up-left"
-        class=" absolute scale-0 right-[-35%] bottom-[66%]  sm:right-[8%] sm:bottom-[40%]  lg:scale-150  lg:bottom-[10%] lg:left-[50%] lg:right-[0] w-[40rem] h-[40rem] overflow-x-hidden"
-        url="https://prod.spline.design/HVC9zrbSDI-JY-8b/scene.splinecode"></spline-viewer>
+    <!-- ^ robot start (lazy loaded) -->
+    <div data-aos="fade-up-left"
+        class="spline-placeholder absolute scale-0 right-[-35%] bottom-[66%] sm:right-[8%] sm:bottom-[40%] lg:scale-150 lg:bottom-[10%] lg:left-[50%] lg:right-[0] w-[40rem] h-[40rem] overflow-x-hidden"
+        data-url="https://prod.spline.design/HVC9zrbSDI-JY-8b/scene.splinecode"></div>
     <!-- ^ robot ends -->
     <!-- ! hero section ends -->
 
@@ -55,12 +55,12 @@
     <i class="bi bi-lightbulb-fill hidden bulb absolute top-24 right-2 right-bulb text-white text-4xl z-50"></i>
     <div data-aos="fade-zoom-out" data-aos-duration="3000"
         class="absolute right-light top-[8%] lg:top-[18%] right-[-8%] w-[13rem] lg:w-[25rem] z-50"></div>
-    <img class="image-gradient absolute top-0 right-[-20%] opacity-50" src="/assets/img/gradient.png" alt="">
+    <img loading="lazy" decoding="async" class="image-gradient absolute top-0 right-[-20%] opacity-50" src="/assets/img/gradient.png" alt="gradient">
 
     <i class="bi bi-lightbulb-fill hidden bulb absolute top-24 left-2 left-bulb text-4xl text-white z-50"></i>
     <div data-aos="fade-zoom-out" data-aos-duration="3000"
         class="left-light absolute top-[8%] lg:top-[18%] left-[-8%]  w-[13rem] lg:w-[25rem] z-50"></div>
-    <img class="image-gradient  absolute top-0 left-[-20%] opacity-50 z-50" src="/assets/img/gradient.png" alt="">
+    <img loading="lazy" decoding="async" class="image-gradient absolute top-0 left-[-20%] opacity-50 z-50" src="/assets/img/gradient.png" alt="gradient">
     <!-- ! header ends -->
 
     <!-- ^ projects -->
@@ -77,11 +77,11 @@
             </p>
         </a>
 
-        <!-- Spline viewer -->
+        <!-- Spline viewer (lazy loaded) -->
         <div data-aos="fade-up" data-aos-duration="3000"
-            class="w-full sm:w-[48%] lg:w-[30%] h-[400px] mb-10 lg:mb-0 my-3  box-border">
-            <spline-viewer class="w-2/3 mx-auto rounded-2xl overflow-hidden"
-                url="https://prod.spline.design/SUBHD48q7YiBSX-f/scene.splinecode"></spline-viewer>
+            class="w-full sm:w-[48%] lg:w-[30%] h-[400px] mb-10 lg:mb-0 my-3 box-border">
+            <div class="spline-placeholder w-2/3 mx-auto rounded-2xl overflow-hidden"
+                data-url="https://prod.spline.design/SUBHD48q7YiBSX-f/scene.splinecode"></div>
             <h3 class="text-white text-lg font-bold text-center mt-4">Let's boost your Work</h3>
         </div>
 
@@ -89,7 +89,7 @@
         <a data-aos="fade-right" data-aos-duration="3000" href="https://3atofa.github.io/Restaurant-website/"
             target="_blank"
             class="box box-border bg-black p-2 rounded-xl w-full sm:w-[48%] md:w-[32%] border border-slate-300 hover:border-slate-100 hover:shadow shadow-white hover:border-2 transition-all ease-in-out">
-            <img class="w-full rounded-xl" src="/assets/img/Melfiy.png" alt="">
+            <img loading="lazy" decoding="async" class="w-full rounded-xl" src="/assets/img/Melfiy.png" alt="Mealify restaurant website">
             <h3 class="text-xl font-normal mt-3 mb-2 text-white">Restaurant Website</h3>
             <p class="text-gray-200 text-sm">
                 Mealify is an elegant restaurant landing page showcasing gourmet dining experiences, professional chef
@@ -133,8 +133,8 @@
         <div class="light w-72 absolute top-0 left-1/2 -translate-x-1/2 mt-2 z-50"></div>
 
         <!-- Gradient image -->
-        <img class="absolute  left-1/2 -translate-x-1/2 -translate-y-10  top-[-20%] opacity-50 w-[30rem]   z-0"
-            src="/assets/img/gradient.png" alt="" />
+        <img loading="lazy" decoding="async" class="absolute left-1/2 -translate-x-1/2 -translate-y-10 top-[-20%] opacity-50 w-[30rem] z-0"
+            src="/assets/img/gradient.png" alt="gradient" />
     </div>
 
     <!-- & GenAI starts -->
@@ -195,8 +195,8 @@
     <i class="bi bi-lightbulb-fill bulb z-40 absolute top-[10%] left-[48%] rotate-[180deg] text-4xl text-white"></i>
     <div data-aos="fade-zoom-out" data-aos-duration="3000"
         class="absolute light top-[15%] left-[45%] w-40 -translate-x-1/2 -translate-y-1/2 z-30 rounded-full "></div>
-    <img class="image-gradient absolute top-0 left-1/2 -translate-x-1/2 opacity-50" src="/assets/img/gradient.png"
-        alt="">
+    <img loading="lazy" decoding="async" class="image-gradient absolute top-0 left-1/2 -translate-x-1/2 opacity-50" src="/assets/img/gradient.png"
+        alt="gradient">
 
     <div class="lg:flex justify-between items-center">
         <!-- Landing Pages Box -->
@@ -232,8 +232,8 @@
         <div class="light w-72 absolute top-0 left-1/2 -translate-x-1/2 mt-2 z-50"></div>
 
         <!-- Gradient image -->
-        <img class="absolute  left-1/2 -translate-x-1/2 -translate-y-10  top-[-20%] opacity-50 w-[30rem]   z-50"
-            src="/assets/img/gradient.png" alt="" />
+        <img loading="lazy" decoding="async" class="absolute left-1/2 -translate-x-1/2 -translate-y-10 top-[-20%] opacity-50 w-[30rem] z-50"
+            src="/assets/img/gradient.png" alt="gradient" />
     </div>
 
     <div class="lg:flex justify-between items-center my-16">
@@ -255,7 +255,7 @@
         </div>
 
         <div class="lg:w-1/2 my-4 lg:my-0">
-            <img class="w-2/3 mx-auto  lg:ms-auto rounded-full" src="/assets/img/omar-bg-cut.jpg" alt="">
+            <img loading="lazy" decoding="async" class="w-2/3 mx-auto lg:ms-auto rounded-full" src="/assets/img/omar-bg-cut.jpg" alt="Omar Atef">
         </div>
     </div>
 

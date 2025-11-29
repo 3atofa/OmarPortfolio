@@ -1,0 +1,153 @@
+<!-- Hero Section -->
+<section class="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0">
+        <img loading="lazy" decoding="async" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20 scale-150" 
+             src="/assets/img/gradient.png" alt="gradient background">
+    </div>
+    
+    <div class="light-effect-services relative z-10">
+        <div data-aos="fade-zoom-out" data-aos-duration="2000" class="lamb-services absolute top-0 left-1/2 -translate-x-1/2"></div>
+        <i class="bi bi-lightbulb-fill bulb-services absolute -top-32 left-1/2 -translate-x-1/2 rotate-[180deg] text-5xl text-white"></i>
+    </div>
+
+    <div class="relative z-20 text-center px-6">
+        <h1 data-aos="fade-up" class="text-5xl lg:text-7xl font-bold uppercase mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+            Services
+        </h1>
+        <p data-aos="fade-up" data-aos-delay="200" class="text-gray-400 text-lg lg:text-xl max-w-3xl mx-auto mb-8">
+            Professional web development services tailored to bring your digital vision to life with cutting-edge technologies and modern design principles
+        </p>
+    </div>
+</section>
+
+<!-- Services Grid -->
+<section class="relative mx-6 lg:mx-20 my-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        <div *ngFor="let service of services; let i = index" 
+             [attr.data-aos]="'fade-up'"
+             [attr.data-aos-delay]="i * 100"
+             class="service-card group relative overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-br from-black via-gray-900 to-black p-8 hover:border-white/40 transition-all duration-500">
+            
+            <!-- Icon -->
+            <div class="relative mb-6">
+                <div [class]="'w-20 h-20 rounded-2xl bg-gradient-to-br ' + service.gradient + ' flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500'">
+                    <i [class]="'bi ' + service.icon + ' text-4xl text-white'"></i>
+                </div>
+                <div [class]="'absolute inset-0 w-20 h-20 rounded-2xl bg-gradient-to-br ' + service.gradient + ' blur-xl opacity-50 group-hover:opacity-70 transition-opacity duration-500'"></div>
+            </div>
+
+            <!-- Content -->
+            <h3 class="text-2xl font-bold mb-4 text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text transition-all duration-300"
+                [ngClass]="'group-hover:' + service.gradient">
+                {{ service.title }}
+            </h3>
+            <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                {{ service.description }}
+            </p>
+
+            <!-- Features List -->
+            <ul class="space-y-2 mb-6">
+                <li *ngFor="let feature of service.features" class="flex items-start text-sm text-gray-300">
+                    <i class="bi bi-check-circle-fill text-green-500 mr-2 mt-1 flex-shrink-0"></i>
+                    <span>{{ feature }}</span>
+                </li>
+            </ul>
+
+            <!-- Glow Effect -->
+            <div [class]="'absolute -bottom-32 -right-32 w-64 h-64 bg-gradient-to-br ' + service.gradient + ' opacity-10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700'"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Technologies Section -->
+<section class="relative mx-6 lg:mx-20 my-32">
+    <div data-aos="zoom-in" class="relative w-max mx-auto mb-16 text-center">
+        <h2 class="text-4xl lg:text-5xl font-bold uppercase relative z-20 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+            Technologies & Tools
+        </h2>
+        <div class="light-tech absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 z-50"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div *ngFor="let tech of technologies; let i = index"
+             [attr.data-aos]="'flip-left'"
+             [attr.data-aos-delay]="i * 50"
+             class="tech-card relative p-6 rounded-xl border border-white/20 bg-gradient-to-br from-black via-gray-900 to-black hover:border-white/40 transition-all duration-300">
+            
+            <h4 class="text-lg font-semibold mb-3 text-white">{{ tech.name }}</h4>
+            
+            <!-- Progress Bar -->
+            <div class="relative w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+                <div class="absolute inset-y-0 left-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-1000"
+                     [style.width.%]="tech.level"
+                     [attr.data-aos]="'slide-right'"
+                     [attr.data-aos-delay]="200 + (i * 50)"></div>
+            </div>
+            
+            <span class="text-sm text-gray-400 mt-2 inline-block">{{ tech.level }}%</span>
+        </div>
+    </div>
+</section>
+
+<!-- Process Section -->
+<section class="relative mx-6 lg:mx-20 my-32">
+    <div data-aos="zoom-in" class="relative w-max mx-auto mb-16 text-center">
+        <h2 class="text-4xl lg:text-5xl font-bold uppercase relative z-20 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+            My Process
+        </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div data-aos="fade-up" data-aos-delay="0" class="process-step text-center p-8 rounded-xl border border-white/20 bg-gradient-to-br from-black via-gray-900 to-black hover:border-white/40 transition-all duration-300">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-2xl font-bold">1</div>
+            <h3 class="text-xl font-bold mb-2 text-white">Discovery</h3>
+            <p class="text-gray-400 text-sm">Understanding your goals, requirements, and target audience</p>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="100" class="process-step text-center p-8 rounded-xl border border-white/20 bg-gradient-to-br from-black via-gray-900 to-black hover:border-white/40 transition-all duration-300">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-2xl font-bold">2</div>
+            <h3 class="text-xl font-bold mb-2 text-white">Design</h3>
+            <p class="text-gray-400 text-sm">Creating wireframes and prototypes that align with your vision</p>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="200" class="process-step text-center p-8 rounded-xl border border-white/20 bg-gradient-to-br from-black via-gray-900 to-black hover:border-white/40 transition-all duration-300">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center text-2xl font-bold">3</div>
+            <h3 class="text-xl font-bold mb-2 text-white">Development</h3>
+            <p class="text-gray-400 text-sm">Building your solution with clean code and best practices</p>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="300" class="process-step text-center p-8 rounded-xl border border-white/20 bg-gradient-to-br from-black via-gray-900 to-black hover:border-white/40 transition-all duration-300">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-2xl font-bold">4</div>
+            <h3 class="text-xl font-bold mb-2 text-white">Delivery</h3>
+            <p class="text-gray-400 text-sm">Testing, deployment, and ongoing support for your project</p>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="relative mx-6 lg:mx-20 my-32">
+    <div data-aos="zoom-in" class="relative border border-white/20 rounded-3xl p-12 lg:p-16 text-center overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="relative z-10">
+            <h2 class="text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+                Ready to Start Your Project?
+            </h2>
+            <p class="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
+                Let's discuss how I can help bring your ideas to life with professional web development services
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a routerLink="/contact" 
+                   class="inline-block px-8 py-4 rounded-full border-2 border-white bg-white text-black font-semibold hover:bg-black hover:text-white transition-all duration-300">
+                    Get Started <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+                <a routerLink="/projects" 
+                   class="inline-block px-8 py-4 rounded-full border-2 border-white bg-black text-white font-semibold hover:bg-white hover:text-black transition-all duration-300">
+                    View Projects <i class="bi bi-box-arrow-up-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

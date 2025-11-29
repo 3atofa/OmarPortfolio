@@ -5,3 +5,31 @@
     bottom: -20%;
     right: 0;
 }
+
+/* Mobile menu animation */
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply animation to mobile menu */
+nav > div.fixed {
+    animation: slideInFromTop 0.3s ease-out;
+}
+
+/* Smooth transitions */
+nav a, nav button {
+    transition: all 0.3s ease;
+}
+
+/* Active filter state */
+.active-filter {
+    background: white !important;
+    color: black !important;
+}
