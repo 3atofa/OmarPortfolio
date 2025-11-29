@@ -13,6 +13,7 @@ import { ProjectDetailsComponent } from './pages/project-details/project-details
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ServiceDetailsComponent } from './pages/service-details/service-details.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MainComponent,
     ProjectsComponent,
     ServicesComponent,
-    ProjectDetailsComponent
+    ProjectDetailsComponent,
+    ServiceDetailsComponent
   ],
   imports: [
     BrowserModule,
